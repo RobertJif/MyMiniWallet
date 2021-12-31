@@ -16,7 +16,6 @@ const initializeAccount = async (customerId) => {
   const existingCustomer = await Customer.findOne({
     where: { customerId },
   });
-  console.log(existingCustomer?.dataValues);
   if (existingCustomer)
     return [existingCustomer.dataValues.token.toString(), null];
   const t = await sequelize.transaction();
