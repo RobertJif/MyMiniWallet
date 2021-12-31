@@ -1,0 +1,2 @@
+# MyMiniWallet
+Personal projects
