@@ -1,4 +1,4 @@
-# server-back-office
+# My Mini Wallet (Wallet Service)
 
 ## Prerequisite
 
@@ -12,4 +12,6 @@ Make sure you have:
 ## How to get started
 
 1. npm install
-2. npm run start:dev
+2. cp .env .env.local
+3. edit .env.local according to your db info
+4. npm run start:dev

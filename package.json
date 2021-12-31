@@ -1,5 +1,5 @@
 {
-  "name": "MyMiniWallet",
+  "name": "wallet-service",
   "version": "0.0.1",
   "description": "Node.js api boilerplate for future company server development",
   "main": "index.js",
