@@ -124,7 +124,7 @@ const handle_disable_wallet_async = async (req, res, next) => {
       id: wallet.dataValues.id,
       owned_by: wallet.dataValues.customerId,
       status: wallet.dataValues.status,
-      enabled_at: wallet.dataValues.updatedAt,
+      disabled_at: wallet.dataValues.updatedAt,
       balance: +wallet.dataValues.balance,
     },
   });
