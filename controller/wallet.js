@@ -94,9 +94,9 @@ const handle_withdraw_async = async (req, res, next) => {
   return res.status(201).send({
     deposit: {
       id: transaction.dataValues.id,
-      deposited_by: transaction.dataValues.createdBy,
+      withdrawn_by: transaction.dataValues.createdBy,
       status: transaction.dataValues.status,
-      deposited_at: transaction.dataValues.created,
+      withdrawn_at: transaction.dataValues.created,
       amount: +transaction.dataValues.amount,
       reference_id: transaction.dataValues.refId,
     },
