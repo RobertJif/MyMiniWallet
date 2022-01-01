@@ -30,7 +30,7 @@ const handle_find_balance_async = async (req, res, next) => {
   if (wallet.dataValues.status !== walletEnum.WALLET_STATUS.ACTIVE)
     return res.status(400).send({ error: "Disabled" });
 
-  return res.status(201).send({
+  return res.status(200).send({
     wallet: {
       id: wallet.dataValues.id,
       owned_by: wallet.dataValues.customerId,
@@ -46,7 +46,7 @@ const handle_deposit_async = async (req, res, next) => {
 
   if (!wallet) return res.status(404).send({ error: "Wallet not found" });
   if (wallet.dataValues.status !== walletEnum.WALLET_STATUS.ACTIVE)
-    return res.status(400).send({ error: "Disabled" });
+    return res.status(404).send({ error: "Disabled" });
   let transaction = await _transactionService.findByRefId(
     req.body?.reference_id
   );
@@ -76,7 +76,7 @@ const handle_withdraw_async = async (req, res, next) => {
 
   if (!wallet) return res.status(404).send({ error: "Wallet not found" });
   if (wallet.dataValues.status !== walletEnum.WALLET_STATUS.ACTIVE)
-    return res.status(400).send({ error: "Disabled" });
+    return res.status(404).send({ error: "Disabled" });
 
   let transaction = await _transactionService.findByRefId(
     req.body?.reference_id
@@ -119,7 +119,7 @@ const handle_disable_wallet_async = async (req, res, next) => {
 
   wallet.status = walletEnum.WALLET_STATUS.INACTIVE;
   await wallet.save();
-  return res.status(201).send({
+  return res.status(200).send({
     wallet: {
       id: wallet.dataValues.id,
       owned_by: wallet.dataValues.customerId,
